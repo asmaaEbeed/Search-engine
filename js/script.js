@@ -13,19 +13,21 @@ var myProd = document.getElementById("search"),
     priceDiv = document.getElementById("price"),
     availableDiv = document.getElementById("available"),
     sorrymsg = document.getElementById("sorry"),
-    srchbtn = document.getElementById("but");
-
+    srchbtn = document.getElementById("but"),
+    searchResult = document.getElementById("searchresult");
 //prodDiv.innerHTML = productArr[3].name;
 
 function checkavailable(){
+    
     sorrymsg.innerHTML = "There is no such product";
     
     prodDiv.innerHTML = "";
     priceDiv.innerHTML = "";
     availableDiv.innerHTML = "";
+    
 
     productArr.forEach(function(item){
-        
+        searchResult.style.display = "block";
         
         if(myProd.value == item.name)
         {
