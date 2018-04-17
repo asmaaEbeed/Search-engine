@@ -14,7 +14,8 @@ var myProd = document.getElementById("search"),
     availableDiv = document.getElementById("available"),
     sorrymsg = document.getElementById("sorry"),
     srchbtn = document.getElementById("but"),
-    searchResult = document.getElementById("searchresult");
+    searchResult = document.getElementById("searchresult"),
+    resultClass = document.getElementById("innercontainerresult");
 //prodDiv.innerHTML = productArr[3].name;
 
 function checkavailable(){
@@ -24,24 +25,30 @@ function checkavailable(){
     prodDiv.innerHTML = "";
     priceDiv.innerHTML = "";
     availableDiv.innerHTML = "";
+    resultClass.style.display = "none";
     
 
     productArr.forEach(function(item){
-        searchResult.style.display = "block";
+        
         
         if(myProd.value == item.name)
         {
+            resultClass.style.display = "block";
+
             sorrymsg.innerHTML = "";
-            prodDiv.innerHTML = item.name;
-            priceDiv.innerHTML = item.price + " $";
+            prodDiv.innerHTML = "<i>Model</i>  :  " + item.name;
+            priceDiv.innerHTML = "<i>Price</i> &nbsp&nbsp:   " + item.price + " $";
            
             if(item.quantity == 0)
             {
-                availableDiv.innerHTML = "Sorry This product is not Available";
+                availableDiv.style.color = "#eaf717";
+                availableDiv.innerHTML = "<span style = 'font-size: 29px; '>Sorry ! </span> This product is not Available.";
             } 
             else 
             {
-                availableDiv.innerHTML = "Product is available";
+                availableDiv.style.color = "#9dffa4";
+                availableDiv.style.fontSize = " 24px";
+                availableDiv.innerHTML = "Product is available.";
             }
            
         } else{
@@ -56,11 +63,11 @@ function checkavailable(){
   // prodDiv.innerHTML = myProd.value; 
   //prodDiv.innerHTML = "ilove";
 }
-/*
+
 myProd.addEventListener("keyup", function(){
     checkavailable();
 })
-*/
+
 srchbtn.addEventListener('click', function(){
     checkavailable();
 })
