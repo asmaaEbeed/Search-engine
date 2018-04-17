@@ -20,11 +20,13 @@ body {
 }
 #innercontainerresult{
     border-radius: 10px;
-    height: auto;
     width : 55%;
     margin-left: 10.5%;
     background: rgba(200,200,200,0.4);
-    display: none;
+    height: 0px;
+    transition: height 1s;
+    overflow: hidden;
+    
 
 }
 #search {

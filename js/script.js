@@ -25,16 +25,17 @@ function checkavailable(){
     prodDiv.innerHTML = "";
     priceDiv.innerHTML = "";
     availableDiv.innerHTML = "";
-    resultClass.style.display = "none";
+    //resultClass.style.display = "none";  important
+    resultClass.style.height = "0px";
     
-
     productArr.forEach(function(item){
         
         
         if(myProd.value == item.name)
         {
-            resultClass.style.display = "block";
-
+         //   resultClass.style.display = "block";  important
+            
+            resultClass.style.height = "200px";
             sorrymsg.innerHTML = "";
             prodDiv.innerHTML = "<i>Model</i>  :  " + item.name;
             priceDiv.innerHTML = "<i>Price</i> &nbsp&nbsp:   " + item.price + " $";
