@@ -2,10 +2,10 @@
 var productArr = [
     {name: "samsung", quantity: 11, price : 2000},
     {name: "iphone", quantity: 12, price : 6000},
-    {name: "asus", quantity: 0, price : 4000},
+    {name: "huawai", quantity: 0, price : 4000},
     {name: "lenovo", quantity: 5, price : 3500},
-    {name: "mac", quantity: 0, price : 9900},
-    {name: "hp", quantity: 6, price : 4200}
+    {name: "nokia", quantity: 0, price : 9900},
+    {name: "alcatel", quantity: 6, price : 4200}
 ];
 
 var myProd = document.getElementById("search"),
@@ -14,8 +14,10 @@ var myProd = document.getElementById("search"),
     availableDiv = document.getElementById("available"),
     sorrymsg = document.getElementById("sorry"),
     srchbtn = document.getElementById("but"),
-    searchResult = document.getElementById("searchresult"),
-    resultClass = document.getElementById("innercontainerresult");
+    resultClass = document.getElementById("innercontainerresult"),
+    mobImg = document.getElementById("images"),
+    avalImg = document.getElementById("avalimg"),
+    soldImg = document.getElementById("soldimg");
 //prodDiv.innerHTML = productArr[3].name;
 
 function checkavailable(){
@@ -25,17 +27,19 @@ function checkavailable(){
     prodDiv.innerHTML = "";
     priceDiv.innerHTML = "";
     availableDiv.innerHTML = "";
-    //resultClass.style.display = "none";  important
     resultClass.style.height = "0px";
+    mobImg.style.height = "0px";
+    soldImg.style.display = "none";
+    avalImg.style.display = "none";
+    
     
     productArr.forEach(function(item){
         
-        
         if(myProd.value == item.name)
         {
-         //   resultClass.style.display = "block";  important
-            
-            resultClass.style.height = "200px";
+         
+           mobImg.style.height = "310px";
+            resultClass.style.height = "310px";
             sorrymsg.innerHTML = "";
             prodDiv.innerHTML = "<i>Model</i>  :  " + item.name;
             priceDiv.innerHTML = "<i>Price</i> &nbsp&nbsp:   " + item.price + " $";
@@ -43,13 +47,16 @@ function checkavailable(){
             if(item.quantity == 0)
             {
                 availableDiv.style.color = "#eaf717";
-                availableDiv.innerHTML = "<span style = 'font-size: 29px; '>Sorry ! </span> This product is not Available.";
+                availableDiv.innerHTML = "<span style = 'font-size: 32px; '>Sorry ! </span> This product is not Available.";
+               soldImg.style.display = "block";
+                
             } 
             else 
             {
                 availableDiv.style.color = "#9dffa4";
-                availableDiv.style.fontSize = " 24px";
+                availableDiv.style.fontSize = "24px";
                 availableDiv.innerHTML = "Product is available.";
+                 avalImg.style.display = "block";
             }
            
         } else{
