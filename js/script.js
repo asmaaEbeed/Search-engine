@@ -35,7 +35,7 @@ function checkavailable(){
     
     productArr.forEach(function(item){
         
-        if(myProd.value == item.name)
+        if(myProd.value.toLowerCase() == item.name)
         {
          
            mobImg.style.height = "310px";

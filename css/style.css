@@ -19,6 +19,15 @@ body {
     width : 80%;
     margin: 0px auto;
 }
+
+p{
+    width : 80%;
+    margin: 0px auto;
+    color: floralwhite;
+    font-size: 18px;
+    padding: 3%;
+}
+
 #innercontainerresult{
     float: left;
     border-radius: 10px;
