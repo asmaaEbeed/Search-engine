@@ -46,15 +46,16 @@ function checkavailable(){
            
             if(item.quantity == 0)
             {
-                availableDiv.style.color = "#eaf717";
+                availableDiv.classList.remove("available");
+                availableDiv.classList.add("notavailable");
                 availableDiv.innerHTML = "<span style = 'font-size: 32px; '>Sorry ! </span> This product is not Available.";
                soldImg.style.display = "block";
                 
             } 
             else 
             {
-                availableDiv.style.color = "#9dffa4";
-                availableDiv.style.fontSize = "24px";
+                availableDiv.classList.remove("notavailable");
+                availableDiv.classList.add ("available");
                 availableDiv.innerHTML = "Product is available.";
                  avalImg.style.display = "block";
             }
