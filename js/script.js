@@ -26,7 +26,7 @@ productArr.map(function(info){
     typeArr.push(info.name);
 });
 
-mobType.innerHTML = "<span style = 'font-size: 20px; font-style : italic; color : ;'>choose your mobile : </span>" + typeArr.join('  - ');
+mobType.innerHTML = "<span style = 'font-size: 20px; font-style : italic; color : #b8c4f9 ; font-weight: bold;'>choose your mobile : </span>" + typeArr.join('  - ');
 
 
 function checkavailable(){
