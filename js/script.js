@@ -17,8 +17,17 @@ var myProd = document.getElementById("search"),
     resultClass = document.getElementById("innercontainerresult"),
     mobImg = document.getElementById("images"),
     avalImg = document.getElementById("avalimg"),
-    soldImg = document.getElementById("soldimg");
+   soldImg = document.getElementById("soldimg"),
+    mobType = document.getElementById("mob-type");
 //prodDiv.innerHTML = productArr[3].name;
+
+var typeArr = [];
+productArr.map(function(info){
+    typeArr.push(info.name);
+});
+
+mobType.innerHTML = "<span style = 'font-size: 20px; font-style : italic; color : ;'>choose your mobile : </span>" + typeArr.join('  - ');
+
 
 function checkavailable(){
     
@@ -29,8 +38,8 @@ function checkavailable(){
     availableDiv.innerHTML = "";
     resultClass.style.height = "0px";
     mobImg.style.height = "0px";
-    soldImg.style.display = "none";
-    avalImg.style.display = "none";
+    soldImg.style.opacity = "0";
+    avalImg.style.opacity = "0";
     
     
     productArr.forEach(function(item){
@@ -49,7 +58,10 @@ function checkavailable(){
                 availableDiv.classList.remove("available");
                 availableDiv.classList.add("notavailable");
                 availableDiv.innerHTML = "<span style = 'font-size: 32px; '>Sorry ! </span> This product is not Available.";
-               soldImg.style.display = "block";
+               
+                
+                soldImg.style.opacity = "1";
+                
                 
             } 
             else 
@@ -57,20 +69,11 @@ function checkavailable(){
                 availableDiv.classList.remove("notavailable");
                 availableDiv.classList.add ("available");
                 availableDiv.innerHTML = "Product is available.";
-                 avalImg.style.display = "block";
+                avalImg.style.opacity = "1";
             }
-           
-        } else{
-//            prodDiv.innerHTML = "";
-//            priceDiv.innerHTML = "";
-//            availableDiv.innerHTML = "";
-        }
+        } 
          
-        });
-   
-    
-  // prodDiv.innerHTML = myProd.value; 
-  //prodDiv.innerHTML = "ilove";
+    });
 }
 
 myProd.addEventListener("keyup", function(){
