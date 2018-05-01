@@ -17,9 +17,8 @@ var myProd = document.getElementById("search"),
     resultClass = document.getElementById("innercontainerresult"),
     mobImg = document.getElementById("images"),
     avalImg = document.getElementById("avalimg"),
-   soldImg = document.getElementById("soldimg"),
     mobType = document.getElementById("mob-type");
-//prodDiv.innerHTML = productArr[3].name;
+
 
 var typeArr = [];
 productArr.map(function(info){
@@ -30,15 +29,12 @@ mobType.innerHTML = "<span style = 'font-size: 20px; font-style : italic; color 
 
 
 function checkavailable(){
-    
     sorrymsg.innerHTML = "There is no such product";
-    
     prodDiv.innerHTML = "";
     priceDiv.innerHTML = "";
     availableDiv.innerHTML = "";
     resultClass.style.height = "0px";
     mobImg.style.height = "0px";
-    soldImg.style.opacity = "0";
     avalImg.style.opacity = "0";
     
     
@@ -46,7 +42,7 @@ function checkavailable(){
         
         if(myProd.value.toLowerCase() == item.name)
         {
-         
+            avalImg.style.opacity = "1";
            mobImg.style.height = "310px";
             resultClass.style.height = "310px";
             sorrymsg.innerHTML = "";
@@ -58,18 +54,16 @@ function checkavailable(){
                 availableDiv.classList.remove("available");
                 availableDiv.classList.add("notavailable");
                 availableDiv.innerHTML = "<span style = 'font-size: 32px; '>Sorry ! </span> This product is not Available.";
-               
-                
-                soldImg.style.opacity = "1";
-                
-                
+                avalImg.style.background = "url(images/sold.svg) no-repeat center top";
+                     
             } 
             else 
             {
                 availableDiv.classList.remove("notavailable");
                 availableDiv.classList.add ("available");
                 availableDiv.innerHTML = "Product is available.";
-                avalImg.style.opacity = "1";
+                
+                avalImg.style.background = "url(images/available.svg) no-repeat center top";
             }
         } 
          
