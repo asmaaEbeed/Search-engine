@@ -1,4 +1,5 @@
 /*global document*/
+//product array
 var productArr = [
     {name: "samsung", quantity: 11, price : 2000},
     {name: "iphone", quantity: 12, price : 6000},
@@ -8,6 +9,7 @@ var productArr = [
     {name: "alcatel", quantity: 6, price : 4200}
 ];
 
+//declare my variable
 var myProd = document.getElementById("search"),
     prodDiv = document.getElementById("yourproduct"),
     priceDiv = document.getElementById("price"),
@@ -19,7 +21,7 @@ var myProd = document.getElementById("search"),
     avalImg = document.getElementById("avalimg"),
     mobType = document.getElementById("mob-type");
 
-
+//get product name 
 var typeArr = [];
 productArr.map(function(info){
     typeArr.push(info.name);
@@ -27,8 +29,9 @@ productArr.map(function(info){
 
 mobType.innerHTML = "<span style = 'font-size: 20px; font-style : italic; color : #b8c4f9 ; font-weight: bold;'>choose your mobile : </span>" + typeArr.join('  - ');
 
-
+//search result
 function checkavailable(){
+    //reset data
     sorrymsg.innerHTML = "There is no such product";
     prodDiv.innerHTML = "";
     priceDiv.innerHTML = "";
@@ -42,15 +45,16 @@ function checkavailable(){
         
         if(myProd.value.toLowerCase() == item.name)
         {
+            //view search result
             avalImg.style.opacity = "1";
-           mobImg.style.height = "310px";
+            mobImg.style.height = "310px";
             resultClass.style.height = "310px";
             sorrymsg.innerHTML = "";
             prodDiv.innerHTML = "<i>Model</i>  :  " + item.name;
             priceDiv.innerHTML = "<i>Price</i> &nbsp&nbsp:   " + item.price + " $";
            
             if(item.quantity == 0)
-            {
+            { //case product is not available
                 availableDiv.classList.remove("available");
                 availableDiv.classList.add("notavailable");
                 availableDiv.innerHTML = "<span style = 'font-size: 32px; '>Sorry ! </span> This product is not Available.";
@@ -58,11 +62,10 @@ function checkavailable(){
                      
             } 
             else 
-            {
+            { //case product is available
                 availableDiv.classList.remove("notavailable");
                 availableDiv.classList.add ("available");
                 availableDiv.innerHTML = "Product is available.";
-                
                 avalImg.style.background = "url(images/available.svg) no-repeat center top";
             }
         } 
@@ -70,6 +73,7 @@ function checkavailable(){
     });
 }
 
+//invoke checkavailable Func.
 myProd.addEventListener("keyup", function(){
     checkavailable();
 })
